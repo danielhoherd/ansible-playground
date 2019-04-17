@@ -1,0 +1,19 @@
+all:
+  vars:
+    serial: 1
+  hosts:
+    hosts:
+      foo:
+      bar:
+      s1:
+      s2:
+
+serial:
+  hosts:
+    s1:
+    s2:
+
+parallel:
+  hosts:
+    foo:
+    bar:

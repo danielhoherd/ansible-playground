@@ -1,0 +1,8 @@
+---
+- name: Test serial vs parallel
+  gather_facts: false
+  serial: "{{ serial | default(1) | int }}"
+  hosts: all
+  pre_tasks:
+    - debug:
+        var: serial

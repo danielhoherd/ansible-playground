@@ -1,0 +1,46 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.1.0
+    hooks:
+      - id: check-byte-order-marker
+      - id: check-case-conflict
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-xml
+      - id: check-yaml
+        args: ['--allow-multiple-documents']
+      - id: debug-statements
+      - id: end-of-file-fixer
+      - id: fix-encoding-pragma
+      - id: flake8
+      - id: mixed-line-ending
+        args: ['--fix=lf' ]
+      - id: requirements-txt-fixer
+      - id: sort-simple-yaml
+      - id: trailing-whitespace
+  - repo: https://github.com/detailyang/pre-commit-shell
+    rev: 1.0.4
+    hooks:
+      - id: shell-lint
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.1.6
+    hooks:
+      - id: remove-tabs
+        exclude_types: [makefile, binary]
+  - repo: https://github.com/asottile/reorder_python_imports
+    rev: v1.4.0
+    hooks:
+      - id: reorder-python-imports
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.15.0
+    hooks:
+      - id: yamllint
+  - repo: https://github.com/danielhoherd/pre-commit-hooks
+    rev: 9721876c54a94a87e4aaf99a44e3f6801ef95048
+    hooks:
+      - id: CVE-2017-18342
+      - id: remove-unicode-non-breaking-spaces
+      - id: remove-unicode-zero-width-non-breaking-spaces
+      - id: remove-en-dashes
+      - id: sort-gitignore
