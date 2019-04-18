@@ -12,7 +12,6 @@ repos:
         args: ['--allow-multiple-documents']
       - id: debug-statements
       - id: end-of-file-fixer
-      - id: fix-encoding-pragma
       - id: flake8
       - id: mixed-line-ending
         args: ['--fix=lf' ]
@@ -37,7 +36,7 @@ repos:
     hooks:
       - id: yamllint
   - repo: https://github.com/danielhoherd/pre-commit-hooks
-    rev: 9721876c54a94a87e4aaf99a44e3f6801ef95048
+    rev: 1584d0b104b2dec0acbafb048d5a53a769c7106d
     hooks:
       - id: CVE-2017-18342
       - id: remove-unicode-non-breaking-spaces
