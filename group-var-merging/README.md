@@ -50,7 +50,8 @@ ansible_ssh_common_args: 'normal-test-args'
 However, when we run ansible against the `normal-group`, we see the `vpn-group`'s `group_vars` show up:
 
 ```shell
-$ ansible-playbook --limit "normal-group" -i inventory/inventory.yml playbook.yml | grep -E 'inventory_hostname|vpn-test-args'
+$ ansible-playbook --limit "normal-group" -i inventory/inventory.yml playbook.yml |
+> grep -E 'inventory_hostname|vpn-test-args'
     "hostvars[inventory_hostname]": {
         "ansible_ssh_common_args": "vpn-test-args",
         "inventory_hostname": "host-1",
@@ -85,7 +86,8 @@ normal-group:
 Then when we run ansible, we get the `normal-group` value:
 
 ```shell
-$ ansible-playbook --limit "normal-group" -i inventory/inventory.yml playbook.yml | grep -E 'inventory_hostname|test-args'
+$ ansible-playbook --limit "normal-group" -i inventory/inventory.yml playbook.yml |
+> grep -E 'inventory_hostname|test-args'
     "hostvars[inventory_hostname]": {
         "ansible_ssh_common_args": "normal-test-args",
         "inventory_hostname": "host-1",
