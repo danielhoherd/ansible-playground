@@ -1,0 +1,7 @@
+---
+- name: Test group-vars
+  gather_facts: false
+  hosts: all
+  pre_tasks:
+    - debug:
+        var: hostvars[inventory_hostname]

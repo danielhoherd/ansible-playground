@@ -1,0 +1,17 @@
+all:
+  hosts:
+    hosts:
+      host-1:
+      host-2:
+
+normal-group:
+  vars:
+    ansible_group_priority: 10
+  hosts:
+    host-1:
+    host-2:
+
+vpn-group:
+  hosts:
+    host-1:
+    host-2:
