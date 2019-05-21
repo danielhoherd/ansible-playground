@@ -1,0 +1,28 @@
+---
+- name: Illustrate iterating one list with two different tasks
+  gather_facts: false
+  hosts: localhost
+  vars:
+    disks:
+      - sda
+      - sdb
+      - sdc
+      - sdd
+      - sde
+      - sdf
+
+  tasks:
+    - debug:
+        msg: "First half: {{ disks[:3] }}"
+
+    - debug:
+        msg: "Second half: {{ disks[3:] }}"
+
+
+    - debug:
+        msg: "task 1 disk {{ item }} is {{ disks[item] }}"
+      loop: "{{ range(0,3) | list }}"
+
+    - debug:
+        msg: "task 2 disk {{ item }} is {{ disks[item] }}"
+      loop: "{{ range(3,6) | list }}"
