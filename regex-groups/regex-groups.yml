@@ -1,0 +1,11 @@
+---
+- name: Illustrate replaceing text with regex
+  gather_facts: false
+  hosts: localhost
+
+  tasks:
+    - name: Show named backreferences
+      replace:
+        path: example.txt
+        regexp: '(?P<foo>foo).*(?P<bar>bar).*(?P<baz>baz)'
+        replace: 'Replaced text: \g<baz> \g<bar> \g<foo>'
