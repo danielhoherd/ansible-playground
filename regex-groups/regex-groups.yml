@@ -4,8 +4,12 @@
   hosts: localhost
 
   tasks:
-    - name: Show named backreferences
+    - name: "Show named backreferences using 'replace'"
       replace:
         path: example.txt
         regexp: '(?P<foo>foo).*(?P<bar>bar).*(?P<baz>baz)'
         replace: 'Replaced text: \g<baz> \g<bar> \g<foo>'
+
+    - name: "Show  named capture groups using jinja2"
+      debug:
+        msg: "{{ 'localhost:80' | regex_replace('^(?P<host>.+):(?P<port>\\d+)$', 'hostname is \\g<host>, port number is \\g<port>') }}"
