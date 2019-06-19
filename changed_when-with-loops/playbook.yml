@@ -1,0 +1,19 @@
+---
+- name: Illustrate changed_when with loops
+  gather_facts: false
+  hosts: localhost
+  vars:
+    things:
+      - foo
+      - bar
+      - baz
+
+  tasks:
+    - debug:
+        msg: "{{ item }}"
+      loop: "{{ things }}"
+
+    - debug:
+        msg: "{{ item }}"
+      loop: "{{ things }}"
+      changed_when: item != "baz"
