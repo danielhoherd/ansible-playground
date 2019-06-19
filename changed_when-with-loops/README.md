@@ -10,7 +10,6 @@ $ cat playbook.yml
     things:
       - foo
       - bar
-      - baz
 
   tasks:
     - debug:
@@ -20,7 +19,7 @@ $ cat playbook.yml
     - debug:
         msg: "{{ item }}"
       loop: "{{ things }}"
-      changed_when: item != "baz"
+      changed_when: item != "bar"
 $ ansible-playbook -i localhost playbook.yml 2>/dev/null </dev/null
 
 PLAY [Illustrate changed_when with loops] **************************************
@@ -32,9 +31,6 @@ ok: [localhost] => (item=foo) => {
 ok: [localhost] => (item=bar) => {
     "msg": "bar"
 }
-ok: [localhost] => (item=baz) => {
-    "msg": "baz"
-}
 
 TASK [debug] *******************************************************************
 ok: [localhost] => (item=foo) => {
@@ -42,9 +38,6 @@ ok: [localhost] => (item=foo) => {
 }
 ok: [localhost] => (item=bar) => {
     "msg": "bar"
-}
-ok: [localhost] => (item=baz) => {
-    "msg": "baz"
 }
 
 PLAY RECAP *********************************************************************
