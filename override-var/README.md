@@ -1,4 +1,4 @@
-This demonstrates two ways to select an alternate variable, one by overwriting the default and two by using `default` jinja filter to pick an alternative to a variable to use.
+This demonstrates two ways to select an alternate variable, one by overwriting the default and two by using `default` jinja filter to pick an alternate variable to use.
 
 - <https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#defaulting-undefined-variables>
 
