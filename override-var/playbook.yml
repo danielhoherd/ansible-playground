@@ -1,0 +1,21 @@
+---
+# playbook.yml
+# run with: ansible-playbook -i localhost playbook.yml
+
+- name: A local play
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+
+  tasks:
+    - include_tasks: "more_tasks.yml"
+
+    - set_fact:
+        inventory_hostname: "overridden.inventory.hostname.example.com"
+
+    - include_tasks: "more_tasks.yml"
+
+    - set_fact:
+        custom_hostname: "custom.hostname.example.com"
+
+    - include_tasks: "more_tasks.yml"
