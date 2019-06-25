@@ -1,0 +1,30 @@
+---
+# playbook.yml
+# run with: ansible-playbook -i localhost playbook.yml
+
+- name: A local play
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+  vars:
+    demo_vars:
+      - name: foo
+        some_numbers:
+          - 0
+          - 1
+          - 42
+      - name: bar
+        some_numbers:
+          - 2
+          - 3
+          - 255
+
+  tasks:
+    - name: show stuff
+      debug:
+        var: "{{ item.some_numbers }}"
+      loop: "{{ demo_vars }}"
+      loop_control:
+        label: "This is demo label '{{ item.name }}' on loop index {{ loop_index }}"
+        index_var: loop_index
+        pause: 1
