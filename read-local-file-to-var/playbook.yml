@@ -1,0 +1,19 @@
+---
+# playbook.yml
+# run with: ansible-playbook -i localhost playbook.yml
+
+- name: A local play
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+  vars:
+    test_data: "{{ lookup('file', 'test.txt') }}"
+
+  tasks:
+    - name: Show file from vars
+      debug:
+        msg: "contents of test.txt are: {{ test_data }}"
+
+    - name: Show file from tasks
+      debug:
+        msg: "Reading contets of file during tasks: {{ lookup('file', 'test.txt') }}"
