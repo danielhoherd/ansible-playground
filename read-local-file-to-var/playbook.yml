@@ -17,3 +17,12 @@
     - name: Show file from tasks
       debug:
         msg: "Reading contets of file during tasks: {{ lookup('file', 'test.txt') }}"
+
+    - name: Interpolate scary file contents
+      shell: |
+        echo -n "{{ lookup('file', 'scary-contents.txt') }}"
+      register: scary_contents
+
+    - name: Show that scary contents did bad things
+      debug:
+        var: "scary_contents.stdout_lines"

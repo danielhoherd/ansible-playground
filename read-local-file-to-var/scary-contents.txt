@@ -1,0 +1,4 @@
+--------| backticks:
+`find /var/ -maxdepth 1`
+--------| variable subshell:
+$(find /etc/ -maxdepth 1)
