@@ -1,0 +1,4 @@
+---
+- name: show hostname stuff
+  debug:
+    msg: "hostname to use is: {{ custom_hostname | default(inventory_hostname) }}"
