@@ -1,0 +1,52 @@
+---
+# playbook.yml
+# run with: ansible-playbook -i localhost playbook.yml
+
+- name: A local play
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+  vars:
+    a_list:
+      - "item one"
+      - "item two"
+      - "item three"
+    a_dict:
+      one: 1
+      two: 2
+      three: 3
+
+  tasks:
+    # Show with list
+    - name: "use bare vars['a_list']"
+      debug:
+        msg: "here is a result: {{ vars['a_list'] }}"
+
+    - name: "use 'lookukp' wantlist=False"
+      debug:
+        msg: "here is a result: {{ lookup('vars', 'a_list') }}"
+
+    - name: "use 'lookukp' wantlist=True"
+      debug:
+        msg: "here is a result: {{ lookup('vars', 'a_list', wantlist=True) }}"
+
+    - name: "use 'query'"
+      debug:
+        msg: "here is a result: {{ query('vars', 'a_list') }}"
+
+    # Show with dict
+    - name: "use bare vars['a_dict']"
+      debug:
+        msg: "here is a result: {{ vars['a_dict'] }}"
+
+    - name: "use 'lookukp' wantlist=False"
+      debug:
+        msg: "here is a result: {{ lookup('vars', 'a_dict') }}"
+
+    - name: "use 'lookukp' wantlist=True"
+      debug:
+        msg: "here is a result: {{ lookup('vars', 'a_dict', wantlist=True) }}"
+
+    - name: "use 'query'"
+      debug:
+        msg: "here is a result: {{ query('vars', 'a_dict') }}"
