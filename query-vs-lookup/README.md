@@ -28,11 +28,11 @@ This shows some of the diferent behaviors of querying data with `query` vs `look
       debug:
         msg: "here is a result: {{ vars['a_list'] }}"
 
-    - name: "use 'lookukp' wantlist=False"
+    - name: "use 'lookup' wantlist=False"
       debug:
         msg: "here is a result: {{ lookup('vars', 'a_list') }}"
 
-    - name: "use 'lookukp' wantlist=True"
+    - name: "use 'lookup' wantlist=True"
       debug:
         msg: "here is a result: {{ lookup('vars', 'a_list', wantlist=True) }}"
 
@@ -45,11 +45,11 @@ This shows some of the diferent behaviors of querying data with `query` vs `look
       debug:
         msg: "here is a result: {{ vars['a_dict'] }}"
 
-    - name: "use 'lookukp' wantlist=False"
+    - name: "use 'lookup' wantlist=False"
       debug:
         msg: "here is a result: {{ lookup('vars', 'a_dict') }}"
 
-    - name: "use 'lookukp' wantlist=True"
+    - name: "use 'lookup' wantlist=True"
       debug:
         msg: "here is a result: {{ lookup('vars', 'a_dict', wantlist=True) }}"
 
@@ -71,12 +71,12 @@ ok: [localhost] => {
     "msg": "here is a result: ['item one', 'item two', 'item three']"
 }
 
-TASK [use 'lookukp' wantlist=False] ********************************************
+TASK [use 'lookup' wantlist=False] ********************************************
 ok: [localhost] => {
     "msg": "here is a result: ['item one', 'item two', 'item three']"
 }
 
-TASK [use 'lookukp' wantlist=True] *********************************************
+TASK [use 'lookup' wantlist=True] *********************************************
 ok: [localhost] => {
     "msg": "here is a result: [['item one', 'item two', 'item three']]"
 }
@@ -91,12 +91,12 @@ ok: [localhost] => {
     "msg": "here is a result: {'one': 1, 'two': 2, 'three': 3}"
 }
 
-TASK [use 'lookukp' wantlist=False] ********************************************
+TASK [use 'lookup' wantlist=False] ********************************************
 ok: [localhost] => {
     "msg": "here is a result: {'one': 1, 'two': 2, 'three': 3}"
 }
 
-TASK [use 'lookukp' wantlist=True] *********************************************
+TASK [use 'lookup' wantlist=True] *********************************************
 ok: [localhost] => {
     "msg": "here is a result: [{'one': 1, 'two': 2, 'three': 3}]"
 }

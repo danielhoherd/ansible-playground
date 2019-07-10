@@ -22,11 +22,11 @@
       debug:
         msg: "here is a result: {{ vars['a_list'] }}"
 
-    - name: "use 'lookukp' wantlist=False"
+    - name: "use 'lookup' wantlist=False"
       debug:
         msg: "here is a result: {{ lookup('vars', 'a_list') }}"
 
-    - name: "use 'lookukp' wantlist=True"
+    - name: "use 'lookup' wantlist=True"
       debug:
         msg: "here is a result: {{ lookup('vars', 'a_list', wantlist=True) }}"
 
@@ -39,11 +39,11 @@
       debug:
         msg: "here is a result: {{ vars['a_dict'] }}"
 
-    - name: "use 'lookukp' wantlist=False"
+    - name: "use 'lookup' wantlist=False"
       debug:
         msg: "here is a result: {{ lookup('vars', 'a_dict') }}"
 
-    - name: "use 'lookukp' wantlist=True"
+    - name: "use 'lookup' wantlist=True"
       debug:
         msg: "here is a result: {{ lookup('vars', 'a_dict', wantlist=True) }}"
 
