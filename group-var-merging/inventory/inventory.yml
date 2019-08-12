@@ -11,7 +11,7 @@ normal_group:
     host-1:
     host-2:
 
-vpn-group:
+vpn_group:
   hosts:
     host-1:
     host-2:
