@@ -19,7 +19,7 @@ We create a group that is used for accessing these two hosts under normal condit
 
 ```yaml
 # inventory/inventory.yml
-normal-group:
+normal_group:
   hosts:
     host-1:
     host-2:
@@ -29,7 +29,7 @@ We create a group that is used for accessing these hosts under alternate conditi
 
 ```yaml
 # inventory/inventory.yml
-vpn-group:
+vpn_group:
   hosts:
     host-1:
     host-2:
@@ -37,20 +37,20 @@ vpn-group:
 
 We create a `group_vars` file for the normal conditions:
 ```yaml
-# group_vars/normal-group.yml
+# group_vars/normal_group.yml
 ansible_ssh_common_args: 'normal-test-args'
 ```
 
 We also create a `group_vars` file for the alternate VPN conditions:
 ```yaml
-# group_vars/vpn-group.yml
+# group_vars/vpn_group.yml
 ansible_ssh_common_args: 'normal-test-args'
 ```
 
-However, when we run ansible against the `normal-group`, we see the `vpn-group`'s `group_vars` show up:
+However, when we run ansible against the `normal_group`, we see the `vpn_group`'s `group_vars` show up:
 
 ```shell
-$ ansible-playbook --limit "normal-group" -i inventory/inventory.yml playbook.yml |
+$ ansible-playbook --limit "normal_group" -i inventory/inventory.yml playbook.yml |
 > grep -E 'inventory_hostname|vpn-test-args'
     "hostvars[inventory_hostname]": {
         "ansible_ssh_common_args": "vpn-test-args",
@@ -75,7 +75,7 @@ And a configurable option is available
 So if we alter our inventory to be:
 
 ```yaml
-normal-group:
+normal_group:
   vars:
     ansible_group_priority: 10
   hosts:
@@ -83,10 +83,10 @@ normal-group:
     host-2:
 ```
 
-Then when we run ansible, we get the `normal-group` value:
+Then when we run ansible, we get the `normal_group` value:
 
 ```shell
-$ ansible-playbook --limit "normal-group" -i inventory/inventory.yml playbook.yml |
+$ ansible-playbook --limit "normal_group" -i inventory/inventory.yml playbook.yml |
 > grep -E 'inventory_hostname|test-args'
     "hostvars[inventory_hostname]": {
         "ansible_ssh_common_args": "normal-test-args",

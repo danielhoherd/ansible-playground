@@ -4,7 +4,7 @@ all:
       host-1:
       host-2:
 
-normal-group:
+normal_group:
   vars:
     ansible_group_priority: 10
   hosts:
