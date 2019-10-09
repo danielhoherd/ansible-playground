@@ -1,6 +1,6 @@
 # Overview
 
-Test whether disks that have the same content but in different order match.
+Test whether lists that have the same content but in different order match.
 
 # Demo
 
