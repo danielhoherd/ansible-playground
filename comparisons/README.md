@@ -35,11 +35,16 @@ $ ansible-playbook -i localhost playbook.yml </dev/null 2>/dev/null
 
 PLAY [A local play] ************************************************************
 
-TASK [Check equality] **********************************************************
+TASK [Check dict equality] *****************************************************
+ok: [localhost] => {
+    "msg": "{'foo': 'bar', 'fizz': 'buzz'} is equal to {'fizz': 'buzz', 'foo': 'bar'}"
+}
+
+TASK [Check dict and json equality] ********************************************
 ok: [localhost] => {
     "msg": "{'foo': 'bar', 'fizz': 'buzz'} is equal to {'fizz': 'buzz', 'foo': 'bar'}"
 }
 
 PLAY RECAP *********************************************************************
-localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```

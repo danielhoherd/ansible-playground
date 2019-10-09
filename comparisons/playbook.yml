@@ -16,8 +16,15 @@
       fizz: 'buzz'
       foo: 'bar'
 
+    test_dict_1_as_json: '{"foo": "bar", "fizz": "buzz"}'
+
   tasks:
-    - name: "Check equality"
+    - name: "Check dict equality"
       debug:
         msg: "{{ test_dict_1 }} is equal to {{ test_dict_2 }}"
       when: 'test_dict_1 == test_dict_2'
+
+    - name: "Check dict and json equality"
+      debug:
+        msg: "{{ test_dict_1_as_json | from_json }} is equal to {{ test_dict_2 }}"
+      when: '{{ test_dict_1_as_json | from_json }} == test_dict_2'
