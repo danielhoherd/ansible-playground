@@ -23,6 +23,8 @@ Test whether disks that have the same content but in different order match.
       fizz: 'buzz'
       foo: 'bar'
 
+    test_dict_1_as_json: '{"foo": "bar", "fizz": "buzz"}'
+
   tasks:
     - name: "Check equality"
       debug:
