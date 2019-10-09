@@ -1,0 +1,23 @@
+---
+# playbook.yml
+# run with: ansible-playbook -i localhost playbook.yml </dev/null
+
+- name: A local play
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    test_dict_1:
+      foo: 'bar'
+      fizz: 'buzz'
+
+    test_dict_2:
+      fizz: 'buzz'
+      foo: 'bar'
+
+  tasks:
+    - name: "Check equality"
+      debug:
+        msg: "{{ test_dict_1 }} is equal to {{ test_dict_2 }}"
+      when: 'test_dict_1 == test_dict_2'
