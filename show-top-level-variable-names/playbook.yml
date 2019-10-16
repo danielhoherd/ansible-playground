@@ -1,0 +1,13 @@
+---
+# playbook.yml
+# run with: ansible-playbook -i localhost playbook.yml </dev/null
+
+- name: A local play
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+
+  tasks:
+    - name: Show all top level variable names
+      debug:
+        msg: "{{ lookup('varnames', '.+').split(',') | sort }}"
