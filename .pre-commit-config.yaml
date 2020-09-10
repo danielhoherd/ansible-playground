@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.5.0
+    rev: v3.2.0
     hooks:
       - id: check-byte-order-marker
       - id: check-case-conflict
@@ -13,7 +13,6 @@ repos:
       - id: debug-statements
       - id: detect-private-key
       - id: end-of-file-fixer
-      - id: flake8
       - id: mixed-line-ending
         args: ['--fix=lf' ]
       - id: requirements-txt-fixer
@@ -24,23 +23,28 @@ repos:
     hooks:
       - id: shell-lint
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.1.7
+    rev: v1.1.9
     hooks:
       - id: remove-tabs
         exclude_types: [makefile, binary]
   - repo: https://github.com/asottile/reorder_python_imports
-    rev: v2.1.0
+    rev: v2.3.5
     hooks:
       - id: reorder-python-imports
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.20.0
+    rev: v1.24.2
     hooks:
       - id: yamllint
   - repo: https://github.com/danielhoherd/pre-commit-hooks
-    rev: 71f4ec08999cc9f2146a0067748dba5f38168c06
+    rev: 07f5a00b0f7d7856d602baf5e530a4d4472d7bf3
     hooks:
       - id: CVE-2017-18342
+      - id: remove-unicode-zero-width-space
       - id: remove-unicode-non-breaking-spaces
       - id: remove-unicode-zero-width-non-breaking-spaces
       - id: remove-en-dashes
       - id: sort-gitignore
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.8.3
+    hooks:
+      - id: flake8
