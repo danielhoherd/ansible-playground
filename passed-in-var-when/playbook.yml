@@ -1,0 +1,19 @@
+---
+# playbook.yml
+# run with: ansible-playbook -i localhost playbook.yml </dev/null
+
+- name: A local play
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+
+  tasks:
+    - name: "TESTVAR is not set"
+      when: TESTVAR is not defined
+      debug:
+        msg: "TESTVAR is not defined"
+
+    - name: "TESTVAR is set"
+      when: TESTVAR is defined
+      debug:
+        msg: "TESTVAR={{ TESTVAR }}"
