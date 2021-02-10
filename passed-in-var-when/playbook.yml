@@ -8,12 +8,27 @@
   gather_facts: yes
 
   tasks:
-    - name: "TESTVAR is not set"
+    - name: "TESTVAR is not defined"
       when: TESTVAR is not defined
       debug:
         msg: "TESTVAR is not defined"
 
-    - name: "TESTVAR is set"
+    - name: "TESTVAR is defined"
       when: TESTVAR is defined
+      debug:
+        msg: "TESTVAR={{ TESTVAR }}"
+
+    - name: "TESTVAR is True"
+      when: (TESTVAR is defined) and (TESTVAR | bool)
+      debug:
+        msg: "TESTVAR={{ TESTVAR }}"
+
+    - name: "TESTVAR is not True"
+      when: (TESTVAR is defined) and not ( TESTVAR | bool)
+      debug:
+        msg: "TESTVAR={{ TESTVAR }}"
+
+    - name: "TESTVAR is squee"
+      when: (TESTVAR is defined) and (TESTVAR == "squee")
       debug:
         msg: "TESTVAR={{ TESTVAR }}"
