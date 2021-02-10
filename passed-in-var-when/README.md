@@ -64,7 +64,9 @@ skipping: [localhost]
 
 PLAY RECAP *********************************************************************************************************
 localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0
+```
 
+```
 $ ansible-playbook -e TESTVAR=0 -i localhost playbook.yml 2>/dev/null
 
 PLAY [A local play] ************************************************************************************************
@@ -93,7 +95,9 @@ skipping: [localhost]
 
 PLAY RECAP *********************************************************************************************************
 localhost                  : ok=3    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0
+```
 
+```
 $ ansible-playbook -e TESTVAR=1 -i localhost playbook.yml 2>/dev/null
 
 PLAY [A local play] ************************************************************************************************
@@ -122,7 +126,9 @@ skipping: [localhost]
 
 PLAY RECAP *********************************************************************************************************
 localhost                  : ok=3    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0
+```
 
+```
 $ ansible-playbook -e TESTVAR=squee -i localhost playbook.yml 2>/dev/null
 
 PLAY [A local play] ************************************************************************************************
