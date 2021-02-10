@@ -9,12 +9,12 @@
 
   vars:
     test_dict_1:
-      foo: 'bar'
-      fizz: 'buzz'
+      foo: "bar"
+      fizz: "buzz"
 
     test_dict_2:
-      fizz: 'buzz'
-      foo: 'bar'
+      fizz: "buzz"
+      foo: "bar"
 
     test_dict_1_as_json: '{"foo": "bar", "fizz": "buzz"}'
 
@@ -22,9 +22,9 @@
     - name: "Check dict equality"
       debug:
         msg: "{{ test_dict_1 }} is equal to {{ test_dict_2 }}"
-      when: 'test_dict_1 == test_dict_2'
+      when: "test_dict_1 == test_dict_2"
 
     - name: "Check dict and json equality"
       debug:
         msg: "{{ test_dict_1_as_json | from_json }} is equal to {{ test_dict_2 }}"
-      when: '{{ test_dict_1_as_json | from_json }} == test_dict_2'
+      when: "{{ test_dict_1_as_json | from_json }} == test_dict_2"

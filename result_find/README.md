@@ -46,6 +46,7 @@ $ cat playbook.yml
         msg: "cmd.stdout does not have 'Enabled: Yes': {{ cmd.stdout }}"
       when: 'cmd.stdout.find("Enabled: Yes") == -1'
 ```
+
 ```
 $ ansible-playbook -i localhost playbook.yml 2>/dev/null </dev/null
 

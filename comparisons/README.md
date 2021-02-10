@@ -16,12 +16,12 @@ Test whether lists that have the same content but in different order match.
 
   vars:
     test_dict_1:
-      foo: 'bar'
-      fizz: 'buzz'
+      foo: "bar"
+      fizz: "buzz"
 
     test_dict_2:
-      fizz: 'buzz'
-      foo: 'bar'
+      fizz: "buzz"
+      foo: "bar"
 
     test_dict_1_as_json: '{"foo": "bar", "fizz": "buzz"}'
 
@@ -29,7 +29,7 @@ Test whether lists that have the same content but in different order match.
     - name: "Check equality"
       debug:
         msg: "{{ test_dict_1 }} is equal to {{ test_dict_2 }}"
-      when: 'test_dict_1 == test_dict_2'
+      when: "test_dict_1 == test_dict_2"
 ```
 
 ```

@@ -7,7 +7,7 @@
     - name: "Show named backreferences using 'replace'"
       replace:
         path: example.txt
-        regexp: '(?P<foo>foo).*(?P<bar>bar).*(?P<baz>baz)'
+        regexp: "(?P<foo>foo).*(?P<bar>bar).*(?P<baz>baz)"
         replace: 'Replaced text: \g<baz> \g<bar> \g<foo>'
 
     - name: "Show  named capture groups using jinja2"

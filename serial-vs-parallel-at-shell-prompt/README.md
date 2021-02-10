@@ -1,6 +1,5 @@
 This shows how to control serial vs parallel on the shell prompt.
 
-
 ```
 $ cat inventory.yml
 ---

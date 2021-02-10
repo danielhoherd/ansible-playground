@@ -1,6 +1,5 @@
 This shows how to set vars based off of the OS distro. These vars can then be used to include files, fill in templates, etc..
 
-
 ```
 $ cat playbook.yml
 ---

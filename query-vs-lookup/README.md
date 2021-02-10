@@ -2,7 +2,6 @@ This shows some of the diferent behaviors of querying data with `query` vs `look
 
 - <https://docs.ansible.com/ansible/latest/plugins/lookup.html#invoking-lookup-plugins-with-query>
 
-
 ```yaml
 ---
 # playbook.yml
@@ -56,8 +55,8 @@ This shows some of the diferent behaviors of querying data with `query` vs `look
     - name: "use 'query'"
       debug:
         msg: "here is a result: {{ query('vars', 'a_dict') }}"
-
 ```
+
 ```
 $ ansible-playbook -i localhost playbook.yml 2>/dev/null </dev/null
 

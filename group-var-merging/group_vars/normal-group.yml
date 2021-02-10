@@ -1,2 +1,2 @@
 ---
-ansible_ssh_common_args: 'normal-test-args'
+ansible_ssh_common_args: "normal-test-args"

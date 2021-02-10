@@ -18,7 +18,6 @@
     - debug:
         msg: "Second half: {{ disks[3:] }}"
 
-
     - debug:
         msg: "task 1 disk {{ item }} is {{ disks[item] }}"
       loop: "{{ range(0,3) | list }}"

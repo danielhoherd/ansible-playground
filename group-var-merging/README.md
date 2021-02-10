@@ -36,15 +36,17 @@ vpn_group:
 ```
 
 We create a `group_vars` file for the normal conditions:
+
 ```yaml
 # group_vars/normal_group.yml
-ansible_ssh_common_args: 'normal-test-args'
+ansible_ssh_common_args: "normal-test-args"
 ```
 
 We also create a `group_vars` file for the alternate VPN conditions:
+
 ```yaml
 # group_vars/vpn_group.yml
-ansible_ssh_common_args: 'normal-test-args'
+ansible_ssh_common_args: "normal-test-args"
 ```
 
 However, when we run ansible against the `normal_group`, we see the `vpn_group`'s `group_vars` show up:
