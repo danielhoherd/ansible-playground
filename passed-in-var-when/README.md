@@ -1,4 +1,4 @@
-Demonstration of how to pass in a variable and make decisions based on its presence.
+Demonstration of how to pass in a variable and make decisions based on its value.
 
 ```yaml
 ---
