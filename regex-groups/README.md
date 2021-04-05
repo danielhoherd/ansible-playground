@@ -3,7 +3,7 @@ This shows how to use regex groups.
 ```
 $ cat ./regex-groups.yml
 ---
-- name: Illustrate replaceing text with regex
+- name: Show ways to use regex to create facts and replace textfile contents
   gather_facts: false
   hosts: localhost
 
