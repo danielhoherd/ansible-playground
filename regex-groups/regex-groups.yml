@@ -3,7 +3,22 @@
   gather_facts: false
   hosts: localhost
 
+  vars:
+    db_connection: "postgresql://username:password@example.com:1234/some_db"
+
   tasks:
+    - name: "parse regex"
+      vars:
+        regex: 'postgres(ql)?:\/\/(?P<username>[^:]+):(?P<password>[^@]+)@(?P<hostname>[^:]+):(?P<port>\d+)'
+      set_fact:
+        db_username: "{{ db_connection | regex_search(regex, '\\g<username>') | first }}"
+        db_password: "{{ db_connection | regex_search(regex, '\\g<password>') | first }}"
+        db_hostname: "{{ db_connection | regex_search(regex, '\\g<hostname>') | first }}"
+        db_port: "{{ db_connection | regex_search(regex, '\\g<port>') | first }}"
+
+    - debug:
+        msg: "db_username: {{ db_username }}, db_password: {{ db_password }}, db_hostname: {{ db_hostname }}, db_port: {{ db_port }}"
+
     - name: "Show named backreferences using 'replace'"
       replace:
         path: example.txt
