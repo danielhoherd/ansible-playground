@@ -18,6 +18,11 @@
       debug:
         msg: "TESTVAR={{ TESTVAR }}"
 
+    - name: "TESTVAR is not defined or is false"
+      when: (TESTVAR is not defined) or not (TESTVAR | bool)
+      debug:
+        msg: "TESTVAR is not defined or is false"
+
     - name: "TESTVAR is True"
       when: (TESTVAR is defined) and (TESTVAR | bool)
       debug:
